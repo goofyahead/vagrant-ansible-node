@@ -1,0 +1,7 @@
+---
+# tasks file for roles/bastly.git-publisher
+- name: clone repo master if not already cloned
+  git: repo={{ repo_to_install }} dest={{ app_installation_dir }} accept_hostkey=True
+
+- name: install app npm dependencies.
+  npm: path={{ app_installation_dir }}

@@ -1,0 +1,14 @@
+---
+
+- hosts: dev
+  vars:
+    nodejs_version: "0.10.35"
+    nodejs_install_method : "package"
+    app_installation_dir : "/home/vagrant/client"
+    repo_to_install: "git@github.com:Bastly/node-hello-world.git"
+
+  roles: 
+    - { role: bastly.common-build, sudo: yes }
+    - { role : bastly.nodejs, sudo: yes }
+    - { role : bastly.git-publisher }
+    - { role : bastly.start-node, sudo: yes }
